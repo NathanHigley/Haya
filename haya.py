@@ -1,4 +1,8 @@
-def haya(encdata):
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+import os, sys
+
+def encode(encdata):
     if (prompt == "1"):
         dic = {'A':'Ա', 'a':'ա',
                'B':'Բ', 'b':'բ',
@@ -67,13 +71,15 @@ def fr(string, replacements):
 def main():
     data = "0"
     dic = "0"
+
     prompt = input("Type '1' to translate English script to Armenian script. Type '2' to translate Armenian script to English script.\n")
-        while (prompt != "1" and prompt != "2"):
-            print ("Invalid.")
-            prompt = input("Type '1' to translate English script to Armenian script. Type '2' to translate Armenian script to English script.\n")
+    while (prompt != "1" and prompt != "2"):
+        print ("Invalid.")
+        prompt = input("Type '1' to translate English script to Armenian script. Type '2' to translate Armenian script to English script.\n")
 
     data = input("Type or paste your Armenian script to be translated to English script.\n")
-    encdata = haya(data)
+    encdata = encode(data)
     print("-----------------------------------")
     print(fr(data, dic))
+
 main()
