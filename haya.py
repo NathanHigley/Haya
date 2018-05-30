@@ -2,12 +2,10 @@
 # -*- coding: UTF-8 -*-
 import os, sys
 
-print ("[ H A Y A ]")
-print("-----------------------------------")
+print ("[ H A Y A ]\n\n")
 prompt = input("Type '1' to encrypt an English script into Armenian script. \nType '2' to decrypt an Armenian script into English script.\n")
 while (prompt != "1" and prompt != "2"):
-    print ("Invalid.")
-    print("-----------------------------------")
+    print ("Invalid.\n\n")
     prompt = input("Type '1' to encrypt an English script into Armenian script. \nType '2' to decrypt an Armenian script into English script.\n")
 data = input("Type or paste your script.\n")
 
