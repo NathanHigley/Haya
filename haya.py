@@ -2,6 +2,22 @@
 # -*- coding: UTF-8 -*-
 import os, sys
 
+print ("[ H A Y A ]")
+print("-----------------------------------")
+prompt = input("Type '1' to encrypt an English script into Armenian script. \nType '2' to decrypt an Armenian script into English script.\n")
+while (prompt != "1" and prompt != "2"):
+    print ("Invalid.")
+    print("-----------------------------------")
+    prompt = input("Type '1' to encrypt an English script into Armenian script. \nType '2' to decrypt an Armenian script into English script.\n")
+data = input("Type or paste your script.\n")
+
+def main():
+    encdata = encode(data)
+    encode(encdata)
+
+    print("-----------------------------------")
+    print(fr(data, dic))
+
 def encode(encdata):
     if (prompt == "1"):
         dic = {'A':'Ա', 'a':'ա',
@@ -60,10 +76,6 @@ def encode(encdata):
                'Զ':'Z', 'զ':'z',
                ':':'.', '՞':'?'
               }
-    if (prompt != "1" and prompt != "2"):
-        print ("Invalid.")
-        main()
-    return encdata
 
 def fr(string, replacements):
     sorted_dict = sorted(replacements.keys(),key = len, reverse = True)
@@ -71,16 +83,5 @@ def fr(string, replacements):
         if item in string:
             string = string.replace(item, replacements[item])
             return string
-            
-def main():
-    data = "0"
-    dic = "0"
-
-    prompt = input("Type '1' to translate English script to Armenian script. Type '2' to translate Armenian script to English script.\n")
-    data = input("Type or paste your Armenian script to be translated to English script.\n")
-    encdata = encode(data)
-
-    print("-----------------------------------")
-    print(fr(data, dic))
 
 main()
