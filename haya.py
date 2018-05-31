@@ -9,16 +9,8 @@ while (prompt != "1" and prompt != "2"):
     prompt = input("Type '1' to encrypt an English script into Armenian script. \nType '2' to decrypt an Armenian script into English script.\n")
 data = input("Type or paste your script.\n")
 
-def main():
-    encdata = encode(data)
-    encode(encdata)
-
-    print("-----------------------------------")
-    print(fr(data, dic))
-
-def encode(encdata):
-    if (prompt == "1"):
-        dic = {'A':'Ա', 'a':'ա',
+if (prompt == "1"):
+    dic = {    'A':'Ա', 'a':'ա',
                'B':'Բ', 'b':'բ',
                'C':'Կ', 'c':'կ',#Defaults to K because I'm lazy.
                'D':'Դ', 'd':'դ',
@@ -44,10 +36,11 @@ def encode(encdata):
                'X':'ԿՍ', 'x':'կս',
                'Y':'Յ', 'y':'յ',
                'Z':'Զ', 'z':'զ',
-               '.':':', '?':'՞'
+               '.':':', '?':'՞',
+               ' ':' '
               }
-    if (prompt == "2"):
-        dic = {'Ա':'A', 'ա':'a',
+if (prompt == "2"):
+    dic = {    'Ա':'A', 'ա':'a',
                'Բ':'B', 'բ':'b',
                'Դ':'D', 'd':'դ',
                'Ե':'E', 'e':'ե',
@@ -72,8 +65,15 @@ def encode(encdata):
                'ԿՍ':'X', 'կս':'x',
                'Յ':'Y', 'յ':'y',
                'Զ':'Z', 'զ':'z',
-               ':':'.', '՞':'?'
+               ':':'.', '՞':'?',
+               ' ':' '
               }
+
+def main():
+    print("-----------------------------------")
+    for char in data:
+        print(fr(char, dic), sep=' ', end='', flush=True,)
+    print ("\n")
 
 def fr(string, replacements):
     sorted_dict = sorted(replacements.keys(),key = len, reverse = True)
